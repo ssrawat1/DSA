@@ -233,7 +233,7 @@ function createInvertedTrianglePattern(n = 4) {
     for (let k = 0; k < i; k++) {
       pattern += '  ';
     }
-  /* To create numbers */
+    /* To create numbers */
     for (let j = 1; j <= n - i; j++) {
       pattern += i + 1 + ' ';
     }
@@ -243,3 +243,35 @@ function createInvertedTrianglePattern(n = 4) {
 }
 const invertedTrianglePattern = createInvertedTrianglePattern();
 console.log(invertedTrianglePattern);
+
+/* Pyramid Pattern:
+
+*/
+
+function getPyramidPattern(n = 4) {
+  let pattern = '';
+  for (let i = 1; i <= n; i++) {
+    /* print empty spaces: */
+    for (let j = 0; j < n - i; j++) {
+      pattern += ' ' + ' ';
+    }
+    /* print numbers */
+    let newStr = '';
+    for (let k = 1; k < i + 1; k++) {
+      newStr += k + ' ';
+    }
+
+    pattern += newStr;
+    newStr = '';
+
+    /* print numbers: */
+    for (let l = 1; l < i; l++) {
+      newStr = l + ' ' + newStr;
+    }
+    pattern += newStr + '\n';
+  }
+  return pattern;
+}
+
+const pyramidPattern = getPyramidPattern();
+console.log(pyramidPattern);
