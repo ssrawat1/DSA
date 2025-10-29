@@ -278,3 +278,65 @@ function getPyramidPattern(n = 4) {
 
 const pyramidPattern = getPyramidPattern();
 console.log(pyramidPattern);
+
+/* Hollow Diamond Pattern:
+ e.g ->     *
+           * *
+          *   *
+         *     *
+          *   *
+           * *
+            *
+*/
+
+function getDiamondPattern(n = 9) {
+  /* Upper part: */
+  let pattern = '';
+  function getHollowDiamondUpperPattern() {
+    for (let i = 0; i < n; i++) {
+      /* print spaces: */
+      for (let j = 0; j < n - 1 - i; j++) {
+        pattern += ' ';
+      }
+      /* print stars */
+      pattern += '*';
+      /* print spaces again */
+      for (let k = 1; k < 2 * i; k++) {
+        pattern += ' ';
+      }
+      if (i > 0) {
+        pattern += '*';
+      }
+
+      pattern += '\n';
+    }
+  }
+
+  /* Bottom Part: */
+
+  function getHollowDiamondBottomPattern() {
+    for (let i = 1; i <= n - 1; i++) {
+      /* spaces: */
+      for (let j = 1; j < i + 1; j++) {
+        pattern += ' ';
+      }
+      /* stars: */
+      pattern += '*';
+      for (let k = 0; k < 2 * (n - 2 - i) + 1; k++) {
+        pattern += ' ';
+      }
+      if (i < n - 1) {
+        pattern += '*';
+      }
+      pattern += '\n';
+    }
+  }
+
+  getHollowDiamondUpperPattern();
+  getHollowDiamondBottomPattern();
+
+  return pattern;
+}
+
+const diamondPattern = getDiamondPattern();
+console.log(diamondPattern);
