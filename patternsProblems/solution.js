@@ -245,7 +245,10 @@ const invertedTrianglePattern = createInvertedTrianglePattern();
 console.log(invertedTrianglePattern);
 
 /* Pyramid Pattern:
-
+e.g ->         1
+             1 2 1
+           1 2 3 2 1
+         1 2 3 4 3 2 1
 */
 
 function getPyramidPattern(n = 4) {
