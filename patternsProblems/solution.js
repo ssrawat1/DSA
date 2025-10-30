@@ -342,14 +342,11 @@
 // console.log(diamondPattern);
 
 /* Butterfly Pattern:
- e.g ->     *
-           * *
-          *   *
-         *     *
-          *   *
-           * *
-            *
-*/
+ e.g ->    *             *
+           * *         * *
+           * * *     * * *
+           * * * * * * * *
+  */
 
 function getButterflyUpperPattern(n = 4) {
   let pattern = '';
@@ -373,4 +370,6 @@ function getButterflyUpperPattern(n = 4) {
 
 const upperButterfly = getButterflyUpperPattern();
 console.log(upperButterfly);
+
+
 
