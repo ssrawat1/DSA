@@ -289,6 +289,8 @@ console.log(pyramidPattern);
             *
 */
 
+/* Top Part */
+
 function getHollowDiamondUpperPattern(n) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
