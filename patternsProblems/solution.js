@@ -175,7 +175,7 @@
 // console.log(newNumTrianglePattern);
 
 // /* Reverse Triangle Pattern:
-//  e.g ->   1      
+//  e.g ->   1
 //           2 1
 //           3 2 1
 //           4 3 2 1
@@ -198,7 +198,7 @@
 // console.log(reverseTrianglePattern);
 
 // /* Floyd's Triangle Pattern:
-// e.g ->    1      
+// e.g ->    1
 //           2 3
 //           4 5 6
 //           7 8 9 10
@@ -342,13 +342,19 @@
 // console.log(diamondPattern);
 
 /* Butterfly Pattern:
- e.g ->    *             *
-           * *         * *
-           * * *     * * *
-           * * * * * * * *
+
+ e.g ->      *             *
+             * *         * *
+             * * *     * * *
+             * * * * * * * *
+             * * * * * * * *
+             * * *     * * *
+             * *         * *
+             *             *      
+          
   */
 
-function getButterflyUpperPattern(n = 4) {
+function getButterflyUpperPattern(n) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
     /* print star */
@@ -356,7 +362,7 @@ function getButterflyUpperPattern(n = 4) {
       pattern += '*' + ' ';
     }
     /* print spaces: */
-    for (let k = 0; k < 2*(n-i-1); k++) {
+    for (let k = 0; k < 2 * (n - i - 1); k++) {
       pattern += ' ' + ' ';
     }
     /* print start again */
@@ -368,8 +374,31 @@ function getButterflyUpperPattern(n = 4) {
   return pattern;
 }
 
-const upperButterfly = getButterflyUpperPattern();
-console.log(upperButterfly);
+function getButterflyBottomPattern(n ) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print stars*/
+    for (let j = 0; j < n - i; j++) {
+      pattern += '*' + ' ';
+    }
+    /* print spaces */
+    for (let k = 0; k < 2 * i; k++) {
+      pattern += ' ' + ' ';
+    }
+    /* print stars */
+    for (let l = 0; l < n - i; l++) {
+      pattern += '*' + ' ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
 
+function getButterflyPattern(n = 4) {
+  const upperButterfly = getButterflyUpperPattern(n);
+  const bottomButterfly = getButterflyBottomPattern(n);
+  return upperButterfly + bottomButterfly;
+}
 
-
+const butterflyPattern = getButterflyPattern();
+console.log(butterflyPattern);
