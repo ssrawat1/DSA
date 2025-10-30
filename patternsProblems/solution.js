@@ -289,53 +289,56 @@ console.log(pyramidPattern);
             *
 */
 
+function getHollowDiamondUpperPattern(n) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print spaces: */
+    for (let j = 0; j < n - 1 - i; j++) {
+      pattern += ' ';
+    }
+    /* print stars */
+    pattern += '*';
+    /* print spaces again */
+    for (let k = 1; k < 2 * i; k++) {
+      pattern += ' ';
+    }
+    if (i > 0) {
+      pattern += '*';
+    }
+
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+/* Bottom Part: */
+
+function getHollowDiamondBottomPattern(n) {
+  let pattern = '';
+  for (let i = 1; i <= n - 1; i++) {
+    /* spaces: */
+    for (let j = 1; j < i + 1; j++) {
+      pattern += ' ';
+    }
+    /* stars: */
+    pattern += '*';
+    for (let k = 0; k < 2 * (n - 2 - i) + 1; k++) {
+      pattern += ' ';
+    }
+    if (i < n - 1) {
+      pattern += '*';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
 function getDiamondPattern(n = 9) {
   /* Upper part: */
-  let pattern = '';
-  function getHollowDiamondUpperPattern() {
-    for (let i = 0; i < n; i++) {
-      /* print spaces: */
-      for (let j = 0; j < n - 1 - i; j++) {
-        pattern += ' ';
-      }
-      /* print stars */
-      pattern += '*';
-      /* print spaces again */
-      for (let k = 1; k < 2 * i; k++) {
-        pattern += ' ';
-      }
-      if (i > 0) {
-        pattern += '*';
-      }
-
-      pattern += '\n';
-    }
-  }
-
-  /* Bottom Part: */
-
-  function getHollowDiamondBottomPattern() {
-    for (let i = 1; i <= n - 1; i++) {
-      /* spaces: */
-      for (let j = 1; j < i + 1; j++) {
-        pattern += ' ';
-      }
-      /* stars: */
-      pattern += '*';
-      for (let k = 0; k < 2 * (n - 2 - i) + 1; k++) {
-        pattern += ' ';
-      }
-      if (i < n - 1) {
-        pattern += '*';
-      }
-      pattern += '\n';
-    }
-  }
-
-  getHollowDiamondUpperPattern();
-  getHollowDiamondBottomPattern();
-
-  return pattern;
+  const hollowDiamondUpperPart = getHollowDiamondUpperPattern(n);
+  /* Bottom Part */
+  const hollowDiamondBottomPart = getHollowDiamondBottomPattern(n);
+  return hollowDiamondUpperPart + hollowDiamondBottomPart;
 }
 
 const diamondPattern = getDiamondPattern();
