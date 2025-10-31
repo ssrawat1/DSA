@@ -18,11 +18,12 @@ function getBinary(n = 123) {
   return binary;
 }
 
+const binary = getBinary();
+console.log(binary);
+
 /* Conversion Binary To decimal
 e.g => 1001 -> 9
  */
-const binary = getBinary();
-console.log(binary);
 
 function getDecimal(n = 1001) {
   let decimal = 0;
@@ -32,10 +33,28 @@ function getDecimal(n = 1001) {
     let remainder = n % 10;
     n = Math.floor(n / 10);
     decimal += remainder * power;
-    power *= 2; 
+    power *= 2;
   }
-  return decimal
+  return decimal;
 }
 
 const decimal = getDecimal();
-console.log(decimal)
+console.log(decimal);
+
+/* Addition in Binary Number:
+
+e.g -> 0 + 0 => 0
+       0 + 1 => 1
+       1 + 1 => 10 // In general, 1 + 1 = 2 and its binary is 10  
+      
+ */
+ 
+
+/* Two's Complement:
+ e.g -> If we want to store the -ve number for that we use two's complement
+ How we can calculate the Two's Complement:
+ Steps: (1) Convert it into Binary
+        (2) Prefix with 0 (It is Most Significant Bit (MSB) which help us to identify the +ve and -ve number 0 -> for +ve and 1 -> for -ve)
+        (3) 1's complement means replace 0 <-> 1 and 1 <-> 0 (flip)
+        (4) Add 1
+*/
