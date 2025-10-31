@@ -48,7 +48,6 @@ e.g -> 0 + 0 => 0
        1 + 1 => 10 // In general, 1 + 1 = 2 and its binary is 10  
       
  */
- 
 
 /* Two's Complement:
  e.g -> If we want to store the -ve number for that we use two's complement
@@ -58,3 +57,15 @@ e.g -> 0 + 0 => 0
         (3) 1's complement means replace 0 <-> 1 and 1 <-> 0 (flip)
         (4) Add 1
 */
+
+/* Bitwise Operators:
+ It help us to perform the operation on binary forms of decimal numbers:
+ Types of bitwise Operator: (1) Bitwise & // same as Logical &&
+                            (2) Bitwise | // same as Logical ||
+                            (3) Bitwise ^ (XOR):Rule
+                                                     (a) 0^0 = 0, 1^1 = 0 (same bit)
+                                                     (b) 0^1 = 1, 1^0 = 1 (different bit)
+                            (4) Bitwise << (left shift) // 1001 << 1  shift digit one place towards left
+                            (5) Bitwise >> (right shift) // 1001 >> 1 shift digit one place toward right
+   
+ */
