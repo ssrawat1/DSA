@@ -25,7 +25,7 @@ function getMaxNum(nums) {
 console.log(getMaxNum(nums));
 
 /* Linear Search:
-   find the target and return its index 
+   find the target and return its index  if doesn't exist then return -1
    Target = 8;
  */
 
@@ -36,5 +36,6 @@ function getTargetIndex(arr, target) {
   for (let i=0; i<arr.length; i++) {
     if (arr[i] === target) return i;
   }
+  return -1
 }
 console.log(getTargetIndex(arr, target));
