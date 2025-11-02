@@ -12,3 +12,14 @@ function getMinNum(nums) {
 
 console.log(getMinNum(nums));
 
+/* Find the Largest number in an array: */
+
+function getMaxNum(nums) {
+  let minNum = Number.NEGATIVE_INFINITY;
+  for (let num of nums) {
+    if (minNum < num) minNum = num;
+  }
+  return minNum;
+};
+
+console.log(getMaxNum(nums))
