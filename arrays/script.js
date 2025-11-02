@@ -20,6 +20,21 @@ function getMaxNum(nums) {
     if (minNum < num) minNum = num;
   }
   return minNum;
-};
+}
 
-console.log(getMaxNum(nums))
+console.log(getMaxNum(nums));
+
+/* Linear Search:
+   find the target and return its index 
+   Target = 8;
+ */
+
+let arr = [4, 2, 7, 8, 1, 2, 5];
+let target = 8;
+
+function getTargetIndex(arr, target) {
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] === target) return i;
+  }
+}
+console.log(getTargetIndex(arr, target));
