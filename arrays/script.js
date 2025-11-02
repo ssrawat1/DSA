@@ -33,9 +33,23 @@ let arr = [4, 2, 7, 8, 1, 2, 5];
 let target = 8;
 
 function getTargetIndex(arr, target) {
-  for (let i=0; i<arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === target) return i;
   }
-  return -1
+  return -1;
 }
 console.log(getTargetIndex(arr, target));
+
+/* Reverse an array: */
+
+let array = [1, 3, 5, 7, 9, 2, 4, 6, 8];
+
+function reverse(array) {
+  let n = array.length - 1;
+  console.log({n})
+  for (let i = 0; i <= Math.floor(n / 2); i++) {
+    [array[i], array[n - i]] = [array[n - i], array[i]];
+  }
+  return array;
+}
+console.log(reverse(array));
