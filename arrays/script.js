@@ -54,26 +54,45 @@
 // }
 // console.log(reverse(array));
 
-/* Write a function to swap max and min number of an array: */
+// /* Write a function to swap max and min number of an array: */
 
-let myArray = [1, 3, 5, 7, 9, 8, 6, 4, 2];
-function swapMaxAndMin(arr) {
-  let min = Number.POSITIVE_INFINITY;
-  let max = Number.NEGATIVE_INFINITY;
-  let minIdx = null;
-  let maxIdx = null;
-  for (let i = 0; i < arr.length; i++) {
-    if (min > arr[i]) {
-      min = arr[i];
-      minIdx = i;
-    }
-    if (max < arr[i]) {
-      max = arr[i];
-      maxIdx = i;
+// let myArray = [1, 3, 5, 7, 9, 8, 6, 4, 2];
+// function swapMaxAndMin(arr) {
+//   let min = Number.POSITIVE_INFINITY;
+//   let max = Number.NEGATIVE_INFINITY;
+//   let minIdx = null;
+//   let maxIdx = null;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (min > arr[i]) {
+//       min = arr[i];
+//       minIdx = i;
+//     }
+//     if (max < arr[i]) {
+//       max = arr[i];
+//       maxIdx = i;
+//     }
+//   }
+//   [arr[minIdx], arr[maxIdx]] = [arr[maxIdx], arr[minIdx]];
+//   return arr;
+// }
+
+// console.log(swapMaxAndMin(myArray));
+
+/* Write a function to print all the unique values in an array: */
+
+let myNums = [1, 2, 3, 4, 5, 3, 2, 1];
+
+function printUniqueValues(nums) {
+  let set = new Set();
+  for (let num of nums) {
+    if (!set.has(num)) {
+      set.add(num);
+    } else {
+      set.delete(num);
     }
   }
-  [arr[minIdx], arr[maxIdx]] = [arr[maxIdx], arr[minIdx]];
-  return arr
+  for (const num of set) {
+    console.log(num)
+  }
 }
-
-console.log(swapMaxAndMin(myArray));
+printUniqueValues(myNums);
