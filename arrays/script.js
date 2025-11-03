@@ -78,21 +78,45 @@
 
 // console.log(swapMaxAndMin(myArray));
 
-/* Write a function to print all the unique values in an array: */
+// /* Write a function to print all the unique values in an array: */
 
-let myNums = [1, 2, 3, 4, 5, 3, 2, 1];
+// let myNums = [1, 2, 3, 4, 5, 3, 2, 1];
 
-function printUniqueValues(nums) {
+// function printUniqueValues(nums) {
+//   let set = new Set();
+//   for (let num of nums) {
+//     if (!set.has(num)) {
+//       set.add(num);
+//     } else {
+//       set.delete(num);
+//     }
+//   }
+//   for (const num of set) {
+//     console.log(num);
+//   }
+// }
+// printUniqueValues(myNums);
+
+/* Write a function to print intersection of 2 arrays: */
+let a1 = [1, 2, 3, 4, 5];
+let a2 = [2, 2, 2, 4, 6, 8];
+
+function getIntersection(a1, a2) {
+  let intersection = [];
   let set = new Set();
-  for (let num of nums) {
+
+  for (let num of a1) {
     if (!set.has(num)) {
       set.add(num);
-    } else {
+    }
+  }
+
+  for (let num of a2) {
+    if (set.has(num)) {
+      intersection.push(num);
       set.delete(num);
     }
   }
-  for (const num of set) {
-    console.log(num)
-  }
+  return intersection;
 }
-printUniqueValues(myNums);
+console.log(getIntersection(a1, a2));
