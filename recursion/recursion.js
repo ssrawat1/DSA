@@ -64,6 +64,8 @@ console.log(nNumSum());
 
 /*******************************************************************
        calculate the sequence of the fibonacci sequence
+                  TC -> 2^n
+                  SC -> O(n)
 
  *******************************************************************/
 
@@ -73,3 +75,20 @@ function getFibonacciSequence(n = 9) {
 }
 
 console.log(getFibonacciSequence());
+
+/*******************************************************************
+      Check if array is sorted or not
+                TC -> O(n)
+                SC -> O(n)
+
+ *******************************************************************/
+
+function isSorted(arr = [1, 2, 3, 4, 5], index = 0) {
+  if (index === arr.length - 1) return true;
+  if (arr[index] > arr[index + 1]) return false;
+
+  // Check rest of array
+  return isSorted(arr, index + 1);
+}
+
+console.log(isSorted());
