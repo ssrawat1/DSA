@@ -5,6 +5,8 @@
  TC -> Total no. of recursion calls * Work done in each calls
  SC -> Depth of recursion tree(Height of call stack) * Memory in each call
 
+ Note -> Recursion sometimes comes with teh baggage of the call stack
+
 ***********************************************************************************************************************************************/
 
 /**************************************************  
@@ -59,3 +61,15 @@ function nNumSum(n = 9) {
 }
 
 console.log(nNumSum());
+
+/*******************************************************************
+       calculate the sequence of the fibonacci sequence
+
+ *******************************************************************/
+
+function getFibonacciSequence(n = 9) {
+  if (n == 0 || n == 1) return n;
+  return getFibonacciSequence(n - 1) + getFibonacciSequence(n - 2);
+}
+
+console.log(getFibonacciSequence());
