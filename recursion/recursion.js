@@ -77,7 +77,7 @@ function getFibonacciSequence(n = 9) {
 console.log(getFibonacciSequence());
 
 /*******************************************************************
-      Check if array is sorted or not
+      Check if array is sorted in Ascending order or not
                 TC -> O(n)
                 SC -> O(n)
 
