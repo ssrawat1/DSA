@@ -47,3 +47,15 @@ function calculateFactorial(n = 7) {
 }
 
 console.log(calculateFactorial());
+
+/*******************************************************************
+       Sum of N Numbers using Recursion
+
+ *******************************************************************/
+
+function nNumSum(n = 9) {
+  if (n === 1) return n;
+  return n + nNumSum(n - 1);
+}
+
+console.log(nNumSum());
