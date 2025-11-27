@@ -116,28 +116,74 @@ function getTarget(arr = [-1, 0, 3, 5, 9, 12], target = 5, start = 0, end = arr.
 console.log({ targetIndex: getTarget() });
 
 /*******************************************************************
-         Print All Subset 
+    Find the all subsets from unique elements using recursion
           Input: [1,2,3]
           Output: {}, {1}, {2}, {3}, {1,2}, {13}, {2,3}, {1, 2, 3}
 
-          Tc -> 2^n
+          Tc -> 2^n * n
           SC -> O(n)
 
  *******************************************************************/
 
-let subsets = [];
-let currentSubset = [];
-function printAllSubsets(arr, i = 0) {
-  if (i === arr.length) {
-    subsets.push([...currentSubset]);
-    return;
+function getAllSubsets() {
+  let subsets = [];
+  let currentSubset = [];
+  let i = 0;
+  let arr = [1, 2, 3];
+
+  function findSubsets(arr, i) {
+    if (i === arr.length) {
+      subsets.push([...currentSubset]);
+      return;
+    }
+    currentSubset.push(arr[i]);
+
+    /* Inclusion Call */
+    findSubsets(arr, i + 1);
+
+    /* Backtracking step -> before making inclusion call we come back on original state */
+    currentSubset.pop();
+    findSubsets(arr, i + 1);
   }
-  currentSubset.push(arr[i]);
-  printAllSubsets(arr, i + 1);
-  currentSubset.pop();
-  printAllSubsets(arr, i + 1);
+
+  findSubsets(arr, i);
+  return subsets;
 }
 
-printAllSubsets([1, 2, 3], 0);
+console.log(getAllSubsets());
+/*******************************************************************
+        Find the all unique subsets from duplicate elements using recursion 
+          Input: [1,2,2]
+          Output: {}, {1}, {2}, {1, 2}, {2, 2}, {1, 2, 2}
 
-console.log(subsets);
+********************************************************************/
+
+function getUniqueSubsets() {
+  let arr = [1, 2, 2];
+  let i = 0;
+  let currentSubset = [];
+  let subsets = [];
+  function calculateSubsets(arr, i) {
+    if (i === arr.length) {
+      subsets.push([...currentSubset]);
+      return;
+    }
+
+    /* Inclusion Choice */
+    currentSubset.push(arr[i]);
+    calculateSubsets(arr, i + 1);
+
+    /* skip duplicates */
+    let idx = i + 1;
+    while (idx < arr.length && arr[idx] === arr[idx - 1]) idx++;
+    /* exclusion */
+    currentSubset.pop();
+    calculateSubsets(arr, idx);
+  }
+
+  calculateSubsets(arr, i);
+
+  return subsets;
+}
+
+console.log(getUniqueSubsets());
