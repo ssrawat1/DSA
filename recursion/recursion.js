@@ -2,6 +2,8 @@
 
  NOTE:   Recursion -> When a function calls itself to solve a problem by breaking it into sub-problems until it reaches a simple base case 
 
+ Recursion Say -> You Don't need to solve the whole problem at once just pic a small part of the problem and solve it and for remaining problem make a recursive call
+
  TC -> Total no. of recursion calls * Work done in each calls
  SC -> Depth of recursion tree(Height of call stack) * Memory in each call
 
@@ -112,3 +114,30 @@ function getTarget(arr = [-1, 0, 3, 5, 9, 12], target = 5, start = 0, end = arr.
 }
 
 console.log({ targetIndex: getTarget() });
+
+/*******************************************************************
+         Print All Subset 
+          Input: [1,2,3]
+          Output: {}, {1}, {2}, {3}, {1,2}, {13}, {2,3}, {1, 2, 3}
+
+          Tc -> 2^n
+          SC -> O(n)
+
+ *******************************************************************/
+
+let subsets = [];
+let currentSubset = [];
+function printAllSubsets(arr, i = 0) {
+  if (i === arr.length) {
+    subsets.push([...currentSubset]);
+    return;
+  }
+  currentSubset.push(arr[i]);
+  printAllSubsets(arr, i + 1);
+  currentSubset.pop();
+  printAllSubsets(arr, i + 1);
+}
+
+printAllSubsets([1, 2, 3], 0);
+
+console.log(subsets);
