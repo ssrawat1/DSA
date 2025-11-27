@@ -156,10 +156,13 @@ console.log(getAllSubsets());
           Input: [1,2,2]
           Output: {}, {1}, {2}, {1, 2}, {2, 2}, {1, 2, 2}
 
+          TC -> n*logn + 2*n * n
+          Sc -> O(n)
+
 ********************************************************************/
 
 function getUniqueSubsets() {
-  let arr = [1, 2, 2];
+  let arr = [1, 2, 3, 2, 3].sort((a, b) => a - b);
   let i = 0;
   let currentSubset = [];
   let subsets = [];
