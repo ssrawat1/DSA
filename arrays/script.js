@@ -116,3 +116,32 @@ function getIntersection(a1, a2) {
   return intersection;
 }
 console.log(getIntersection(a1, a2));
+
+/*============================================================
+      Alternative: Modify Original Array (In-place Insert)
+============================================================*/
+function insertInPlace(arr, value, index) {
+  // Step 1: Shift elements RIGHT from the end
+  for (let i = arr.length - 1; i >= index; i--) {
+    arr[i + 1] = arr[i];
+  }
+
+  // Step 2: Insert value at index
+  arr[index] = value;
+
+  return arr;
+}
+
+/* ============================================================
+       Alternative: Modify Original Array (In-place Delete)
+   ============================================================*/
+
+function deleteInPlace(arr, index) {
+  for (let i = index; i < arr.length - 1; i++) {
+    arr[i] = arr[i + 1];
+  }
+
+  arr.pop();
+
+  return arr;
+}
