@@ -155,20 +155,24 @@ function deleteInPlace(arr, index) {
 function getMaximumSubArraySum(arr = [3, -4, 5, 4, -1, 7, -8]) {
   let currSum = 0;
   let maxSum = Number.NEGATIVE_INFINITY;
-  let startIdx;
-  let lastIdx;
+  let tempStart = 0;
+  let startIdx = 0;
+  let lastIdx = 0;
+
   for (let i = 0; i < arr.length; i++) {
     currSum += arr[i];
+
     if (currSum > maxSum) {
       maxSum = currSum;
+      startIdx = tempStart;
       lastIdx = i;
     }
+
     if (currSum < 0) {
-      startIdx = i + 1;
       currSum = 0;
+      tempStart = i + 1;
     }
   }
+
   return { startIdx, lastIdx, maxSum, subArray: arr.slice(startIdx, lastIdx + 1) };
 }
-
-console.log(getMaximumSubArraySum());
