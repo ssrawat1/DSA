@@ -145,3 +145,23 @@ function deleteInPlace(arr, index) {
 
   return arr;
 }
+
+/* ============================================================
+              Maximum Subarray Sum
+   ============================================================*/
+
+function getMaximumSubArraySum(arr = [5,4,-1,7,8]) {
+  let maxSum = Number.NEGATIVE_INFINITY;
+  for (let i = 0; i < arr.length; i++) {
+    let currentMaxSum = 0;
+    for (let j = i; j < arr.length; j++) {
+      currentMaxSum += arr[j];
+    }
+    if (currentMaxSum > maxSum) {
+      maxSum = currentMaxSum;
+    }
+  }
+  return maxSum;
+}
+
+console.log(getMaximumSubArraySum());
