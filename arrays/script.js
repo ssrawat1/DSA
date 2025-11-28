@@ -148,6 +148,8 @@ function deleteInPlace(arr, index) {
 
 /* ============================================================
               Maximum Subarray Sum and subarray
+              TC -> O(n)
+              Sc -> O(1)
    ============================================================*/
 
 function getMaximumSubArraySum(arr = [3, -4, 5, 4, -1, 7, -8]) {
