@@ -150,26 +150,19 @@ function deleteInPlace(arr, index) {
               Maximum Subarray Sum and subarray
    ============================================================*/
 
-function getMaximumSubArraySum(arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]) {
+function getMaximumSubArraySum(arr = [-4, 5, 7, -6, 10, -15, 3]) {
+  let currSum = 0;
   let maxSum = Number.NEGATIVE_INFINITY;
-  let lastIdx;
-  let startIdx;
   for (let i = 0; i < arr.length; i++) {
-    let currentMaxSum = 0;
-    let isFirstTime = true;
-    for (let j = i; j < arr.length; j++) {
-      currentMaxSum += arr[j];
-      if (currentMaxSum > maxSum) {
-        if (isFirstTime) {
-          startIdx = i;
-          isFirstTime = false;
-        }
-        maxSum = currentMaxSum;
-        lastIdx = j;
-      }
+    currSum += arr[i];
+    if (currSum > maxSum) {
+      maxSum = currSum;
+    }
+    if (currSum < 0) {
+      currSum = 0;
     }
   }
-  return { startIdx, lastIdx, maxSum, subArray: arr.slice(startIdx, lastIdx + 1) };
+  return maxSum;
 }
 
 console.log(getMaximumSubArraySum());
